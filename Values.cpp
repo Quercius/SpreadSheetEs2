@@ -21,3 +21,12 @@ void Values::unsubscribe(Observer *o) {
 const std::list<double> Values::getValues() const {
     return values;
 }
+
+
+void Values::addValue(double value) {
+    values.push_back(value);
+}
+
+void Values::removeValue(double value) {
+    values.remove(value);
+}
