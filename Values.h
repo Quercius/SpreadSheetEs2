@@ -13,9 +13,9 @@
 class Values : public Subject {
 public:
 
-    Values(std::list<double> values) : values(values) {};
+    Values(std::list<double> vls) : values(vls) {};
 
-    virtual ~Values();
+    virtual ~Values() {};
 
     void subscribe(Observer *o) override;
 
