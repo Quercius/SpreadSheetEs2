@@ -5,28 +5,27 @@
 #include "Values.h"
 
 void Values::notify() {
-    for (auto itr = std::begin(observers); itr != std::end(observers); itr++) {
-        (*itr)->update();
-    }
+    observer->update();
 }
 
 void Values::subscribe(Observer *o) {
-    observers.push_back(o);
+    this->observer = o;
 }
 
 void Values::unsubscribe(Observer *o) {
-    observers.remove(o);
+    this->observer = nullptr;
 }
 
 const std::list<double> Values::getValues() const {
     return values;
 }
 
-
 void Values::addValue(double value) {
     values.push_back(value);
+    notify();
 }
 
 void Values::removeValue(double value) {
     values.remove(value);
+    notify();
 }

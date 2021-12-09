@@ -32,7 +32,7 @@ public:
 
 private:
     std::list<double> values;
-    std::list<Observer *> observers;
+    Observer *observer;
 };
 
 
