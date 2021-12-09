@@ -12,7 +12,9 @@
 
 class Operations : public Observer {
 public:
-    Operations(Values *subj) : subject(subj) {};
+    Operations(Values *subj) : subject(subj) {
+        update();
+    };
 
     virtual ~Operations() {
         subject->unsubscribe(this);
