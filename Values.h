@@ -17,11 +17,11 @@ public:
 
     virtual ~Values() {};
 
-    void subscribe(Observer *o) override;
+    virtual void subscribe(Observer *o) override;
 
-    void unsubscribe(Observer *o) override;
+    virtual void unsubscribe(Observer *o) override;
 
-    void notify() override;
+    virtual void notify() override;
 
     const std::list<int> getValues() const;
 
@@ -29,10 +29,13 @@ public:
 
     void removeValue(int value);
 
+    void printValues();
 
 private:
     std::list<int> values;
     Observer *observer;
+
+
 };
 
 

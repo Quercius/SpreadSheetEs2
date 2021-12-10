@@ -10,8 +10,8 @@ int main() {
     std::list<int> vls = {2, 43, 1234, 45, 765, 3, 654};
     Values values(vls);
     Operations operations(&values);
-    std::cout << operations.getMax() << std::endl << operations.getMin() << std::endl;
-
+    values.addValue(1);
+    std::cout << "Max: " << operations.getMax() << std::endl << "Min: " << operations.getMin() << std::endl;
 
 
 }
