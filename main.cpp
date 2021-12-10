@@ -1,15 +1,16 @@
 
-
+#include <iostream>
 #include <ncurses/ncurses.h>
+#include <list>
+#include "Values.h"
+#include "Operations.h"
 
 
 int main() {
-    initscr(); /* Start curses mode */
-    printw("Hello World hhh!!!"); /* Print Hello World */
-    refresh(); /* Print it on to the real screen */
-    getch(); /* Wait for user input */
-    endwin(); /* End curses mode */
-
+    std::list<double> vls = {2.432, 4.12345, 5.2205, 501.249, 35.20593};
+    Values values(vls);
+    Operations operations = Operations(&values);
+    std::cout << operations.getMax() << std::endl << operations.getMin() << std::endl;
     return 0;
 }
 
