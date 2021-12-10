@@ -8,21 +8,21 @@ void Operations::update() {
     this->values = subject->getValues();
 
     //update sum
-    double actualSum = 0.0;
+    int actualSum = 0.0;
     for (auto itr = std::begin(this->values); itr != std::end(this->values); itr++) {
         actualSum += *(itr);
     }
     setSum(actualSum);
 
     //update mean
-    double sumToMean = 0.0;
+    int sumToMean = 0.0;
     for (auto itr = std::begin(this->values); itr != std::end(this->values); itr++) {
         sumToMean += *(itr);
     }
     setMean(sumToMean / this->values.size());
 
     //update min
-    double actualMin = *(std::begin(this->values));
+    int actualMin = *(std::begin(this->values));
     for (auto itr = std::begin(this->values); itr != std::end(this->values); itr++) {
         if (*itr <= actualMin) {
             actualMin = *itr;
@@ -31,7 +31,7 @@ void Operations::update() {
     setMin(actualMin);
 
     //update max
-    double actualMax = *(std::begin(this->values));
+    int actualMax = *(std::begin(this->values));
     for (auto itr = std::begin(this->values); itr != std::end(this->values); itr++) {
         if (*itr >= actualMax) {
             actualMax = *itr;
@@ -48,7 +48,7 @@ void Operations::setMean(double mean) {
     Operations::mean = mean;
 }
 
-double Operations::getMax() const {
+int Operations::getMax() const {
     return max;
 }
 
@@ -56,7 +56,7 @@ void Operations::setMax(double max) {
     Operations::max = max;
 }
 
-double Operations::getMin() const {
+int Operations::getMin() const {
     return min;
 }
 
@@ -64,7 +64,7 @@ void Operations::setMin(double min) {
     Operations::min = min;
 }
 
-double Operations::getSum() const {
+int Operations::getSum() const {
     return sum;
 }
 

@@ -13,7 +13,7 @@
 class Values : public Subject {
 public:
 
-    Values(std::list<double> vls) : values(vls) {};
+    Values(std::list<int> vls) : values(vls) {};
 
     virtual ~Values() {};
 
@@ -23,15 +23,15 @@ public:
 
     void notify() override;
 
-    const std::list<double> getValues() const;
+    const std::list<int> getValues() const;
 
-    void addValue(double value);
+    void addValue(int value);
 
-    void removeValue(double value);
+    void removeValue(int value);
 
 
 private:
-    std::list<double> values;
+    std::list<int> values;
     Observer *observer;
 };
 

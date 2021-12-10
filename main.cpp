@@ -7,7 +7,7 @@
 
 
 int main() {
-    std::list<double> vls = {2.432, 4.12345, 5.2205, 501.249, 35.20593};
+    std::list<int> vls = {2, 43, 1234, 45, 765, 3, 654};
     Values values(vls);
     Operations operations = Operations(&values);
     std::cout << operations.getMax() << std::endl << operations.getMin() << std::endl;

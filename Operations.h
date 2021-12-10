@@ -26,25 +26,25 @@ public:
 
     void setMean(double mean);
 
-    double getMax() const;
+    int getMax() const;
 
     void setMax(double max);
 
-    double getMin() const;
+    int getMin() const;
 
     void setMin(double min);
 
-    double getSum() const;
+    int getSum() const;
 
     void setSum(double sum);
 
 private:
     Values *subject;
-    std::list<double> values;
+    std::list<int> values;
     double mean;
-    double max;
-    double min;
-    double sum;
+    int max;
+    int min;
+    int sum;
 };
 
 

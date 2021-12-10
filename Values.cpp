@@ -16,16 +16,16 @@ void Values::unsubscribe(Observer *o) {
     this->observer = nullptr;
 }
 
-const std::list<double> Values::getValues() const {
+const std::list<int> Values::getValues() const {
     return values;
 }
 
-void Values::addValue(double value) {
+void Values::addValue(int value) {
     values.push_back(value);
     notify();
 }
 
-void Values::removeValue(double value) {
+void Values::removeValue(int value) {
     values.remove(value);
     notify();
 }
