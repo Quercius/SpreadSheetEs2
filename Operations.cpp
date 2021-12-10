@@ -2,6 +2,7 @@
 // Created by tommi on 08/12/2021.
 //
 
+#include <iostream>
 #include "Operations.h"
 
 void Operations::update() {
@@ -70,4 +71,10 @@ int Operations::getSum() const {
 
 void Operations::setSum(double sum) {
     Operations::sum = sum;
+}
+
+void Operations::printValues() {
+    for (auto itr = std::begin(this->values); itr != std::end(this->values); itr++) {
+        std::cout << *itr << " " << std::endl;
+    }
 }

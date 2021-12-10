@@ -14,6 +14,7 @@ class Operations : public Observer {
 public:
     Operations(Values *subj) : subject(subj) {
         update();
+        subject->subscribe(this);
     };
 
     virtual ~Operations() {
@@ -37,6 +38,8 @@ public:
     int getSum() const;
 
     void setSum(double sum);
+
+    void printValues();
 
 private:
     Values *subject;

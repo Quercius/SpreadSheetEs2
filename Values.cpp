@@ -2,6 +2,7 @@
 // Created by tommi on 08/12/2021.
 //
 
+#include <iostream>
 #include "Values.h"
 
 void Values::notify() {
@@ -28,4 +29,10 @@ void Values::addValue(int value) {
 void Values::removeValue(int value) {
     values.remove(value);
     notify();
+}
+
+void Values::printValues() {
+    for (auto itr = std::begin(this->values); itr != std::end(this->values); itr++) {
+        std::cout << *itr << " " << std::endl;
+    }
 }
