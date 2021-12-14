@@ -81,24 +81,24 @@ int main() {
                 break;
 
             case 97:
-                //values.addValue(newValue);
+                values.addValue(newValue);
                 newValue = 0;
                 mvprintw(y, x, "%d", choice);
                 break;
 
             case 114:
-                //values.removeValue(newValue);
+                values.removeValue(newValue);
                 newValue = 0;
                 mvprintw(y, x, "%d", choice);
                 x = x + 3;
                 break;
 
             case 101:
+
                 endwin();
 
             default:
                 break;
-
         }
 
     }
