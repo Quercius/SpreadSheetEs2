@@ -73,8 +73,8 @@ void Operations::setSum(double sum) {
     Operations::sum = sum;
 }
 
-void Operations::printValues() {
-    for (auto itr = std::begin(this->values); itr != std::end(this->values); itr++) {
-        std::cout << *itr << " " << std::endl;
-    }
+void Operations::printOperations() {
+    std::cout << "Max:" << this->getMax() << " Min: " << this->getMin()
+              << " Sum: " << this->getSum() << " Mean: " << this->getMean() << std::endl;
+
 }

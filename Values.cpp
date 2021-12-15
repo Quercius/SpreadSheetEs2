@@ -34,6 +34,7 @@ void Values::removeValue(int value) {
 }
 
 void Values::printValues() {
+    std::cout << "List:" << std::endl;
     for (auto itr = std::begin(this->values); itr != std::end(this->values); itr++) {
         std::cout << *itr << " " << std::endl;
     }

@@ -187,6 +187,7 @@ int main() {
             case 101:
                 endwin();
                 values.printValues();
+                operations.printOperations();
                 break;
 
 

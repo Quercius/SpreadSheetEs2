@@ -39,7 +39,7 @@ public:
 
     void setSum(double sum);
 
-    void printValues();
+    void printOperations();
 
 private:
     Values *subject;
