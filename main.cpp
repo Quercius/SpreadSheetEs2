@@ -46,6 +46,7 @@ int main() {
     yOp = 6;
     mvprintw(y, x - 10, "New value:");
     mvprintw(yLeg++, xLeg, "Press numbers to generate new value");
+    mvprintw(yLeg++, xLeg, "Press d to delete the last number of the new value");
     mvprintw(yLeg++, xLeg, "Press a to add the new value");
     mvprintw(yLeg++, xLeg, "Press r to remove the new value");
     mvprintw(yLeg++, xLeg, "Press e to exit and show results");
@@ -148,6 +149,7 @@ int main() {
                     yLeg = 22;
                     mvprintw(y, x - 10, "New value:");
                     mvprintw(yLeg++, xLeg, "Press numbers to generate new value");
+                    mvprintw(yLeg++, xLeg, "Press d to delete the last number of the new value");
                     mvprintw(yLeg++, xLeg, "Press a to add the new value");
                     mvprintw(yLeg++, xLeg, "Press r to remove the new value");
                     mvprintw(yLeg++, xLeg, "Press e to exit and show results");
@@ -181,6 +183,7 @@ int main() {
                     yLeg = 22;
                     mvprintw(y, x - 10, "New value:");
                     mvprintw(yLeg++, xLeg, "Press numbers to generate new value");
+                    mvprintw(yLeg++, xLeg, "Press d to delete the last number of the new value");
                     mvprintw(yLeg++, xLeg, "Press a to add the new value");
                     mvprintw(yLeg++, xLeg, "Press r to remove the new value");
                     mvprintw(yLeg++, xLeg, "Press e to exit and show results");
