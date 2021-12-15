@@ -52,6 +52,7 @@ int main() {
     mvprintw(yLeg++, xLeg, "Press CTRL(CMND)+C to close the window");
 
     int choice = 0;
+    int nCifre = 0;
 
     //show values and operations
 
@@ -63,52 +64,62 @@ int main() {
             case 48:
                 newValue = (newValue * 10) + (choice - 48);
                 mvprintw(y, x, "%d", newValue);
+                nCifre++;
                 break;
 
 
             case 49:
                 newValue = (newValue * 10) + (choice - 48);
                 mvprintw(y, x, "%d", newValue);
+                nCifre++;
                 break;
 
             case 50:
                 newValue = (newValue * 10) + (choice - 48);
                 mvprintw(y, x, "%d", newValue);
+                nCifre++;
                 break;
 
             case 51:
                 newValue = (newValue * 10) + (choice - 48);
                 mvprintw(y, x, "%d", newValue);
+                nCifre++;
                 break;
 
             case 52:
                 newValue = (newValue * 10) + (choice - 48);
                 mvprintw(y, x, "%d", newValue);
+                nCifre++;
                 break;
 
             case 53:
                 newValue = (newValue * 10) + (choice - 48);
                 mvprintw(y, x, "%d", newValue);
+                nCifre++;
                 break;
 
             case 54:
                 newValue = (newValue * 10) + (choice - 48);
                 mvprintw(y, x, "%d", newValue);
+                nCifre++;
                 break;
 
             case 55:
                 newValue = (newValue * 10) + (choice - 48);
                 mvprintw(y, x, "%d", newValue);
+                nCifre++;
                 break;
 
             case 56:
                 newValue = (newValue * 10) + (choice - 48);
                 mvprintw(y, x, "%d", newValue);
+                nCifre++;
                 break;
 
             case 57:
                 newValue = (newValue * 10) + (choice - 48);
                 mvprintw(y, x, "%d", newValue);
+                nCifre++;
                 break;
 
             case 97:
@@ -117,6 +128,7 @@ int main() {
                 else {
                     values.addValue(newValue);
                     newValue = 0;
+                    nCifre = 0;
                     clear();
                     tmpValues = values.getValues();
                     yVal = 6;
@@ -149,6 +161,7 @@ int main() {
                 } else {
                     values.removeValue(newValue);
                     newValue = 0;
+                    nCifre = 0;
                     clear();
                     tmpValues = values.getValues();
                     yVal = 6;
@@ -175,8 +188,19 @@ int main() {
                     break;
                 }
 
-            case 115:
-                break;
+            case 100:
+                if (nCifre == 0) {
+                    break;
+                } else {
+                    mvdelch(y, x + nCifre - 1);
+                    nCifre--;
+                    if (nCifre == 0) {
+                        break;
+                    }
+                    newValue = static_cast<int>(newValue / 10);
+                    mvprintw(y, x, "%d", newValue);
+                    break;
+                }
 
             case 101:
                 endwin();
