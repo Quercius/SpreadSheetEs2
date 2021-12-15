@@ -24,7 +24,7 @@ int main() {
     y = 3;
     xVal = 6;
     yVal = 6;
-    xOp = 10;
+    xOp = 40;
     yOp = 6;
 
     std::list<int> tmpValues = values.getValues();
@@ -33,9 +33,13 @@ int main() {
     }
     yVal = 6;
 
+    mvprintw(yOp, xOp - 10, "Max:");
     mvprintw(yOp++, xOp, "%d", operations.getMax());
+    mvprintw(yOp, xOp - 10, "Min:");
     mvprintw(yOp++, xOp, "%d", operations.getMin());
+    mvprintw(yOp, xOp - 10, "Sum:");
     mvprintw(yOp++, xOp, "%d", operations.getSum());
+    mvprintw(yOp, xOp - 10, "Mean:");
     mvprintw(yOp++, xOp, "%f", operations.getMean());
     yOp = 6;
 
@@ -108,9 +112,13 @@ int main() {
                     mvprintw(yVal++, xVal, "%d", *itr);
                 }
                 yOp = 6;
+                mvprintw(yOp, xOp - 10, "Max:");
                 mvprintw(yOp++, xOp, "%d", operations.getMax());
+                mvprintw(yOp, xOp - 10, "Min:");
                 mvprintw(yOp++, xOp, "%d", operations.getMin());
+                mvprintw(yOp, xOp - 10, "Sum:");
                 mvprintw(yOp++, xOp, "%d", operations.getSum());
+                mvprintw(yOp, xOp - 10, "Mean:");
                 mvprintw(yOp++, xOp, "%f", operations.getMean());
                 break;
 
@@ -124,9 +132,13 @@ int main() {
                     mvprintw(yVal++, xVal, "%d", *itr);
                 }
                 yOp = 6;
+                mvprintw(yOp, xOp - 10, "Max:");
                 mvprintw(yOp++, xOp, "%d", operations.getMax());
+                mvprintw(yOp, xOp - 10, "Min:");
                 mvprintw(yOp++, xOp, "%d", operations.getMin());
+                mvprintw(yOp, xOp - 10, "Sum:");
                 mvprintw(yOp++, xOp, "%d", operations.getSum());
+                mvprintw(yOp, xOp - 10, "Mean:");
                 mvprintw(yOp++, xOp, "%f", operations.getMean());
                 break;
 
