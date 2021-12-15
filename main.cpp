@@ -24,7 +24,7 @@ int main() {
     y = 3;
     xVal = 6;
     yVal = 6;
-    xOp = 40;
+    xOp = 80;
     yOp = 6;
     xLeg = 5;
     yLeg = 22;
@@ -90,8 +90,20 @@ int main() {
                     clear();
                     tmpValues = values.getValues();
                     yVal = 6;
+                    xVal = 6;
                     mvprintw(yVal - 1, xVal, "List:");
+                    int count = 0;
                     for (auto itr = std::begin(tmpValues); itr != std::end(tmpValues); itr++) {
+                        count++;
+                        if (count == 44) {
+                            mvprintw(yVal++, xVal, "%d", *itr);
+                            mvprintw(yVal, xVal, "WARNING: the list cannot contain more values!");
+                            break;
+                        }
+                        if (count == 12 || count == 23 || count == 34) {
+                            yVal = 6;
+                            xVal += 14;
+                        }
                         mvprintw(yVal++, xVal, "%d", *itr);
                     }
                     yOp = 6;
@@ -125,9 +137,16 @@ int main() {
                     clear();
                     tmpValues = values.getValues();
                     yVal = 6;
+                    xVal = 6;
                     mvprintw(yVal - 1, xVal, "List:");
+                    int count = 0;
                     for (auto itr = std::begin(tmpValues); itr != std::end(tmpValues); itr++) {
                         mvprintw(yVal++, xVal, "%d", *itr);
+                        count++;
+                        if (count == 12 || count == 23 || count == 34) {
+                            yVal = 6;
+                            xVal += 14;
+                        }
                     }
                     yOp = 6;
                     mvprintw(yOp, xOp - 10, "Max:");
