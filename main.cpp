@@ -29,6 +29,7 @@ int main() {
     xLeg = 5;
     yLeg = 22;
 
+    mvprintw(yVal - 1, xVal, "List:");
     std::list<int> tmpValues = values.getValues();
     for (auto itr = std::begin(tmpValues); itr != std::end(tmpValues); itr++) {
         mvprintw(yVal++, xVal, "%d", *itr);
@@ -70,6 +71,10 @@ int main() {
             case 55:
             case 56:
             case 57:
+                if (nCifre == 9) {
+                    mvprintw(y, x + nCifre + 3, "WARNING: new value must be shorter than 10 characters!");
+                    break;
+                }
                 newValue = (newValue * 10) + (choice - 48);
                 mvprintw(y, x, "%d", newValue);
                 nCifre++;
@@ -85,6 +90,7 @@ int main() {
                     clear();
                     tmpValues = values.getValues();
                     yVal = 6;
+                    mvprintw(yVal - 1, xVal, "List:");
                     for (auto itr = std::begin(tmpValues); itr != std::end(tmpValues); itr++) {
                         mvprintw(yVal++, xVal, "%d", *itr);
                     }
@@ -119,6 +125,7 @@ int main() {
                     clear();
                     tmpValues = values.getValues();
                     yVal = 6;
+                    mvprintw(yVal - 1, xVal, "List:");
                     for (auto itr = std::begin(tmpValues); itr != std::end(tmpValues); itr++) {
                         mvprintw(yVal++, xVal, "%d", *itr);
                     }
