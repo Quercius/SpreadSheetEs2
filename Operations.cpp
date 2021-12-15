@@ -16,7 +16,7 @@ void Operations::update() {
     setSum(actualSum);
 
     //update mean
-    int sumToMean = 0.0;
+    double sumToMean = 0.0;
     for (auto itr = std::begin(this->values); itr != std::end(this->values); itr++) {
         sumToMean += *(itr);
     }

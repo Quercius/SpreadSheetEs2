@@ -7,11 +7,12 @@
 
 
 int main() {
-    std::list<int> vls = {2, 3};
+    std::list<int> vls = {2, 9};
     Values values(vls);
     Operations operations(&values);
-    values.addValue(1);
-    std::cout << "Max: " << operations.getMax() << std::endl << "Min: " << operations.getMin() << std::endl;
+    //values.addValue(1);
+    printf("%f", operations.getMean());
+    std::cout << "Max: " << operations.getMax() << std::endl << "Mean: " << operations.getMean() << std::endl;
 
     int newValue = 0;
 
