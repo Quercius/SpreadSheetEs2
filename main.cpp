@@ -7,15 +7,11 @@
 
 
 int main() {
-    std::list<int> vls = {2, 9};
+    std::list<int> vls = {};
     Values values(vls);
     Operations operations(&values);
-    //values.addValue(1);
-    printf("%f", operations.getMean());
-    std::cout << "Max: " << operations.getMax() << std::endl << "Mean: " << operations.getMean() << std::endl;
 
     int newValue = 0;
-
 
     initscr();
 
@@ -188,6 +184,7 @@ int main() {
                 endwin();
                 values.printValues();
                 operations.printOperations();
+                std::cout << "\nPress CTRL + C to exit" << std::endl;
                 break;
 
 

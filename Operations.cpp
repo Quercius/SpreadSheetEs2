@@ -74,7 +74,7 @@ void Operations::setSum(double sum) {
 }
 
 void Operations::printOperations() {
-    std::cout << "Max:" << this->getMax() << " Min: " << this->getMin()
-              << " Sum: " << this->getSum() << " Mean: " << this->getMean() << std::endl;
+    std::cout << "\nMax:" << this->getMax() << "\nMin: " << this->getMin()
+              << "\nSum: " << this->getSum() << "\nMean: " << this->getMean() << std::endl;
 
 }
