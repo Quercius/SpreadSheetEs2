@@ -31,6 +31,13 @@ int main() {
     for (auto itr = std::begin(tmpValues); itr != std::end(tmpValues); itr++) {
         mvprintw(yVal++, xVal, "%d", *itr);
     }
+    yVal = 6;
+
+    mvprintw(yOp++, xOp, "%d", operations.getMax());
+    mvprintw(yOp++, xOp, "%d", operations.getMin());
+    mvprintw(yOp++, xOp, "%d", operations.getSum());
+    mvprintw(yOp++, xOp, "%f", operations.getMean());
+    yOp = 6;
 
     int choice = 0;
 
@@ -95,14 +102,32 @@ int main() {
             case 97:
                 values.addValue(newValue);
                 newValue = 0;
-                mvprintw(y, x, "%d", choice);
+                tmpValues = values.getValues();
+                yVal = 6;
+                for (auto itr = std::begin(tmpValues); itr != std::end(tmpValues); itr++) {
+                    mvprintw(yVal++, xVal, "%d", *itr);
+                }
+                yOp = 6;
+                mvprintw(yOp++, xOp, "%d", operations.getMax());
+                mvprintw(yOp++, xOp, "%d", operations.getMin());
+                mvprintw(yOp++, xOp, "%d", operations.getSum());
+                mvprintw(yOp++, xOp, "%f", operations.getMean());
                 break;
 
             case 114:
                 values.removeValue(newValue);
                 newValue = 0;
-                mvprintw(y, x, "%d", choice);
-                x = x + 3;
+                clear();
+                tmpValues = values.getValues();
+                yVal = 6;
+                for (auto itr = std::begin(tmpValues); itr != std::end(tmpValues); itr++) {
+                    mvprintw(yVal++, xVal, "%d", *itr);
+                }
+                yOp = 6;
+                mvprintw(yOp++, xOp, "%d", operations.getMax());
+                mvprintw(yOp++, xOp, "%d", operations.getMin());
+                mvprintw(yOp++, xOp, "%d", operations.getSum());
+                mvprintw(yOp++, xOp, "%f", operations.getMean());
                 break;
 
             case 115:
