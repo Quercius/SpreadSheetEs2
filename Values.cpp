@@ -3,18 +3,20 @@
 //
 
 #include <iostream>
+#include <list>
 #include "Values.h"
 
 void Values::notify() {
-    observer->update();
+    for (auto itr = std::begin(this->observers); itr != std::end(this->observers); itr++)
+        (*itr)->update();
 }
 
 void Values::subscribe(Observer *o) {
-    this->observer = o;
+    this->observers.push_back(o);
 }
 
 void Values::unsubscribe(Observer *o) {
-    this->observer = nullptr;
+    this->observers.remove(o);
 }
 
 const std::list<int> Values::getValues() const {

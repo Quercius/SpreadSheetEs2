@@ -33,7 +33,7 @@ public:
 
 private:
     std::list<int> values;
-    Observer *observer;
+    std::list<Observer *> observers;
 
 
 };
