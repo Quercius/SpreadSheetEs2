@@ -7,7 +7,7 @@
 
 
 int main() {
-    std::list<int> vls = {2, 43, 1234, 45, 765, 3, 654};
+    std::list<int> vls = {2, 3};
     Values values(vls);
     Operations operations(&values);
     values.addValue(1);
@@ -15,14 +15,26 @@ int main() {
 
     int newValue = 0;
 
+
     initscr();
 
     noecho();
-    int x, y;
-    x = 5;
-    y = 5;
+    int x, y, xVal, yVal, xOp, yOp;
+    x = 3;
+    y = 3;
+    xVal = 6;
+    yVal = 6;
+    xOp = 10;
+    yOp = 6;
+
+    std::list<int> tmpValues = values.getValues();
+    for (auto itr = std::begin(tmpValues); itr != std::end(tmpValues); itr++) {
+        mvprintw(yVal++, xVal, "%d", *itr);
+    }
 
     int choice = 0;
+
+    //show values and operations
 
 
     while (1) {
@@ -93,16 +105,18 @@ int main() {
                 x = x + 3;
                 break;
 
-            case 101:
+            case 115:
+                break;
 
+            case 101:
                 endwin();
+                values.printValues();
+                break;
+
 
             default:
                 break;
+
         }
-
     }
-
-
 }
-
