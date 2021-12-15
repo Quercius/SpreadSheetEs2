@@ -112,60 +112,68 @@ int main() {
                 break;
 
             case 97:
-                values.addValue(newValue);
-                newValue = 0;
-                clear();
-                tmpValues = values.getValues();
-                yVal = 6;
-                for (auto itr = std::begin(tmpValues); itr != std::end(tmpValues); itr++) {
-                    mvprintw(yVal++, xVal, "%d", *itr);
-                }
-                yOp = 6;
-                mvprintw(yOp, xOp - 10, "Max:");
-                mvprintw(yOp++, xOp, "%d", operations.getMax());
-                mvprintw(yOp, xOp - 10, "Min:");
-                mvprintw(yOp++, xOp, "%d", operations.getMin());
-                mvprintw(yOp, xOp - 10, "Sum:");
-                mvprintw(yOp++, xOp, "%d", operations.getSum());
-                mvprintw(yOp, xOp - 10, "Mean:");
-                mvprintw(yOp++, xOp, "%f", operations.getMean());
+                if (newValue == 0)
+                    break;
+                else {
+                    values.addValue(newValue);
+                    newValue = 0;
+                    clear();
+                    tmpValues = values.getValues();
+                    yVal = 6;
+                    for (auto itr = std::begin(tmpValues); itr != std::end(tmpValues); itr++) {
+                        mvprintw(yVal++, xVal, "%d", *itr);
+                    }
+                    yOp = 6;
+                    mvprintw(yOp, xOp - 10, "Max:");
+                    mvprintw(yOp++, xOp, "%d", operations.getMax());
+                    mvprintw(yOp, xOp - 10, "Min:");
+                    mvprintw(yOp++, xOp, "%d", operations.getMin());
+                    mvprintw(yOp, xOp - 10, "Sum:");
+                    mvprintw(yOp++, xOp, "%d", operations.getSum());
+                    mvprintw(yOp, xOp - 10, "Mean:");
+                    mvprintw(yOp++, xOp, "%f", operations.getMean());
 
-                yLeg = 22;
-                mvprintw(y, x - 10, "New value:");
-                mvprintw(yLeg++, xLeg, "Press numbers to generate new value");
-                mvprintw(yLeg++, xLeg, "Press a to add the new value");
-                mvprintw(yLeg++, xLeg, "Press r to remove the new value");
-                mvprintw(yLeg++, xLeg, "Press e to exit and show results");
-                mvprintw(yLeg++, xLeg, "Press CTRL(CMND)+C to close the window");
-                break;
+                    yLeg = 22;
+                    mvprintw(y, x - 10, "New value:");
+                    mvprintw(yLeg++, xLeg, "Press numbers to generate new value");
+                    mvprintw(yLeg++, xLeg, "Press a to add the new value");
+                    mvprintw(yLeg++, xLeg, "Press r to remove the new value");
+                    mvprintw(yLeg++, xLeg, "Press e to exit and show results");
+                    mvprintw(yLeg++, xLeg, "Press CTRL(CMND)+C to close the window");
+                    break;
+                }
 
             case 114:
-                values.removeValue(newValue);
-                newValue = 0;
-                clear();
-                tmpValues = values.getValues();
-                yVal = 6;
-                for (auto itr = std::begin(tmpValues); itr != std::end(tmpValues); itr++) {
-                    mvprintw(yVal++, xVal, "%d", *itr);
-                }
-                yOp = 6;
-                mvprintw(yOp, xOp - 10, "Max:");
-                mvprintw(yOp++, xOp, "%d", operations.getMax());
-                mvprintw(yOp, xOp - 10, "Min:");
-                mvprintw(yOp++, xOp, "%d", operations.getMin());
-                mvprintw(yOp, xOp - 10, "Sum:");
-                mvprintw(yOp++, xOp, "%d", operations.getSum());
-                mvprintw(yOp, xOp - 10, "Mean:");
-                mvprintw(yOp++, xOp, "%f", operations.getMean());
+                if (newValue == 0) {
+                    break;
+                } else {
+                    values.removeValue(newValue);
+                    newValue = 0;
+                    clear();
+                    tmpValues = values.getValues();
+                    yVal = 6;
+                    for (auto itr = std::begin(tmpValues); itr != std::end(tmpValues); itr++) {
+                        mvprintw(yVal++, xVal, "%d", *itr);
+                    }
+                    yOp = 6;
+                    mvprintw(yOp, xOp - 10, "Max:");
+                    mvprintw(yOp++, xOp, "%d", operations.getMax());
+                    mvprintw(yOp, xOp - 10, "Min:");
+                    mvprintw(yOp++, xOp, "%d", operations.getMin());
+                    mvprintw(yOp, xOp - 10, "Sum:");
+                    mvprintw(yOp++, xOp, "%d", operations.getSum());
+                    mvprintw(yOp, xOp - 10, "Mean:");
+                    mvprintw(yOp++, xOp, "%f", operations.getMean());
 
-                yLeg = 22;
-                mvprintw(y, x - 10, "New value:");
-                mvprintw(yLeg++, xLeg, "Press numbers to generate new value");
-                mvprintw(yLeg++, xLeg, "Press a to add the new value");
-                mvprintw(yLeg++, xLeg, "Press r to remove the new value");
-                mvprintw(yLeg++, xLeg, "Press e to exit and show results");
-                mvprintw(yLeg++, xLeg, "Press CTRL(CMND)+C to close the window");
-                break;
+                    yLeg = 22;
+                    mvprintw(y, x - 10, "New value:");
+                    mvprintw(yLeg++, xLeg, "Press numbers to generate new value");
+                    mvprintw(yLeg++, xLeg, "Press a to add the new value");
+                    mvprintw(yLeg++, xLeg, "Press r to remove the new value");
+                    mvprintw(yLeg++, xLeg, "Press e to exit and show results");
+                    mvprintw(yLeg++, xLeg, "Press CTRL(CMND)+C to close the window");
+                    break;
+                }
 
             case 115:
                 break;
