@@ -41,7 +41,7 @@ int main() {
     mvprintw(yOp, xOp - 10, "Sum:");
     mvprintw(yOp++, xOp, "%ld", operations.getSum());
     mvprintw(yOp, xOp - 10, "Mean:");
-    mvprintw(yOp, xOp, "%f", operations.getMean());
+    mvprintw(yOp, xOp, "%Lf", operations.getMean());
 
     mvprintw(y, x - 10, "New value:");
     mvprintw(yLeg++, xLeg, "Press numbers to generate new value");
@@ -118,7 +118,7 @@ int main() {
                     mvprintw(yOp, xOp - 10, "Sum:");
                     mvprintw(yOp++, xOp, "%ld", operations.getSum());
                     mvprintw(yOp, xOp - 10, "Mean:");
-                    mvprintw(yOp, xOp, "%f", operations.getMean());
+                    mvprintw(yOp, xOp, "%Lf", operations.getMean());
 
                     yLeg = 22;
                     mvprintw(y, x - 10, "New value:");
@@ -162,7 +162,7 @@ int main() {
                     mvprintw(yOp, xOp - 10, "Sum:");
                     mvprintw(yOp++, xOp, "%ld", operations.getSum());
                     mvprintw(yOp, xOp - 10, "Mean:");
-                    mvprintw(yOp, xOp, "%f", operations.getMean());
+                    mvprintw(yOp, xOp, "%Lf", operations.getMean());
 
                     yLeg = 22;
                     mvprintw(y, x - 10, "New value:");

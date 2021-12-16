@@ -23,9 +23,9 @@ public:
 
     void update() override;
 
-    double getMean() const;
+    long double getMean() const;
 
-    void setMean(double mean);
+    void setMean(long double mean);
 
     int getMax() const;
 
@@ -44,10 +44,10 @@ public:
 private:
     Values *subject;
     std::list<int> values;
-    double mean;
+    long double mean;
     int max;
     int min;
-    long sum;
+    long int sum;
 };
 
 

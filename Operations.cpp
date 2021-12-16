@@ -41,11 +41,11 @@ void Operations::update() {
     setMax(actualMax);
 }
 
-double Operations::getMean() const {
+long double Operations::getMean() const {
     return mean;
 }
 
-void Operations::setMean(double mean) {
+void Operations::setMean(long double mean) {
     Operations::mean = mean;
 }
 
