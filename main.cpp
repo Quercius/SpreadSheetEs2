@@ -189,6 +189,7 @@ int main() {
                     nCifre--;
                     newValue = static_cast<int>(newValue / 10);
                     mvprintw(y, x, "%d", newValue);
+                    break;
                 } else {
                     mvdelch(y, x + nCifre - 1);
                     nCifre--;
