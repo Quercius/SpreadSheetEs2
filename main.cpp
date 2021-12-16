@@ -4,6 +4,7 @@
 #include <list>
 #include "Values.h"
 #include "Operations.h"
+#include "version.h"
 
 
 int main() {
@@ -204,6 +205,7 @@ int main() {
 
             case 101:
                 endwin();
+                std::cout << "SpreadSheet - v." << VERSION << "\n" << std::endl;
                 values.printValues();
                 operations.printOperations();
                 std::cout << "\nPress CTRL + C to exit" << std::endl;
