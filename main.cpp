@@ -44,6 +44,8 @@ int main() {
     mvprintw(yOp, xOp, "%Lf", operations.getMean());
 
     mvprintw(y, x - 10, "New value:");
+    mvprintw(y, x, "%d", 0);
+
     mvprintw(yLeg++, xLeg, "Press numbers to generate new value");
     mvprintw(yLeg++, xLeg, "Press d to delete the last number of the new value");
     mvprintw(yLeg++, xLeg, "Press a to add the new value");
@@ -71,8 +73,8 @@ int main() {
             case 55:
             case 56:
             case 57:
-                if (nCifre == 7) {
-                    mvprintw(y, x + nCifre + 3, "WARNING: new value must be shorter than 8 characters!");
+                if (nCifre == 6) {
+                    mvprintw(y, x + nCifre + 3, "WARNING: new value must be shorter than 7 characters!");
                     move(y, x + nCifre);
                     break;
                 }
@@ -183,7 +185,7 @@ int main() {
                     move(y, x + nCifre);
                     break;
                 }
-                if (nCifre == 7) {
+                if (nCifre == 6) {
                     move(y, x);
                     clrtoeol();
                     nCifre--;
