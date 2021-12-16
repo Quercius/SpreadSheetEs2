@@ -26,6 +26,8 @@ int main() {
     xLeg = 5;
     yLeg = 22;
 
+    int nCifre = 0;
+
     mvprintw(yVal - 1, xVal, "List:");
     std::list<int> tmpValues = values.getValues();
     for (auto itr = std::begin(tmpValues); itr != std::end(tmpValues); itr++) {
@@ -48,8 +50,9 @@ int main() {
     mvprintw(yLeg++, xLeg, "Press r to remove the new value");
     mvprintw(yLeg++, xLeg, "Press e to exit and show results");
     mvprintw(yLeg, xLeg, "Press CTRL(CMND)+C to close the window");
+    move(y, x + nCifre);
 
-    int nCifre = 0;
+
 
     //show values and operations
 
@@ -70,17 +73,20 @@ int main() {
             case 57:
                 if (nCifre == 9) {
                     mvprintw(y, x + nCifre + 3, "WARNING: new value must be shorter than 10 characters!");
+                    move(y, x + nCifre);
                     break;
                 }
                 newValue = (newValue * 10) + (choice - 48);
                 mvprintw(y, x, "%d", newValue);
                 nCifre++;
+                move(y, x + nCifre);
                 break;
 
             case 97:
-                if (newValue == 0)
+                if (newValue == 0) {
+                    move(y, x + nCifre);
                     break;
-                else {
+                } else {
                     values.addValue(newValue);
                     newValue = 0;
                     nCifre = 0;
@@ -95,6 +101,7 @@ int main() {
                         if (count == 44) {
                             mvprintw(yVal++, xVal, "%d", *itr);
                             mvprintw(yVal, xVal, "WARNING: the list cannot contain more values!");
+                            move(y, x + nCifre);
                             break;
                         }
                         if (count == 12 || count == 23 || count == 34) {
@@ -121,6 +128,8 @@ int main() {
                     mvprintw(yLeg++, xLeg, "Press r to remove the new value");
                     mvprintw(yLeg++, xLeg, "Press e to exit and show results");
                     mvprintw(yLeg, xLeg, "Press CTRL(CMND)+C to close the window");
+
+                    move(y, x + nCifre);
                     break;
                 }
 
@@ -163,22 +172,32 @@ int main() {
                     mvprintw(yLeg++, xLeg, "Press r to remove the new value");
                     mvprintw(yLeg++, xLeg, "Press e to exit and show results");
                     mvprintw(yLeg, xLeg, "Press CTRL(CMND)+C to close the window");
+
+                    move(y, x + nCifre);
+
                     break;
                 }
 
             case 100:
                 if (nCifre == 0) {
+                    move(y, x + nCifre);
                     break;
+                }
+                if (nCifre == 9) {
+                    move(y, x);
+                    clrtoeol();
+                    nCifre--;
+                    newValue = static_cast<int>(newValue / 10);
+                    mvprintw(y, x, "%d", newValue);
                 } else {
                     mvdelch(y, x + nCifre - 1);
                     nCifre--;
-                    if (nCifre == 0) {
-                        break;
-                    }
                     newValue = static_cast<int>(newValue / 10);
                     mvprintw(y, x, "%d", newValue);
+                    move(y, x + nCifre);
                     break;
                 }
+
 
             case 101:
                 endwin();
