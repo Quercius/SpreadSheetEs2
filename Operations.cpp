@@ -9,7 +9,7 @@ void Operations::update() {
     this->values = subject->getValues();
 
     //update sum
-    int actualSum = 0.0;
+    long int actualSum = 0;
     for (auto itr = std::begin(this->values); itr != std::end(this->values); itr++) {
         actualSum += *(itr);
     }
@@ -53,7 +53,7 @@ int Operations::getMax() const {
     return max;
 }
 
-void Operations::setMax(double max) {
+void Operations::setMax(int max) {
     Operations::max = max;
 }
 
@@ -61,15 +61,15 @@ int Operations::getMin() const {
     return min;
 }
 
-void Operations::setMin(double min) {
+void Operations::setMin(int min) {
     Operations::min = min;
 }
 
-int Operations::getSum() const {
+long int Operations::getSum() const {
     return sum;
 }
 
-void Operations::setSum(double sum) {
+void Operations::setSum(long int sum) {
     Operations::sum = sum;
 }
 

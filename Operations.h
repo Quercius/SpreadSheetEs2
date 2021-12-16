@@ -29,15 +29,15 @@ public:
 
     int getMax() const;
 
-    void setMax(double max);
+    void setMax(int max);
 
     int getMin() const;
 
-    void setMin(double min);
+    void setMin(int min);
 
-    int getSum() const;
+    long int getSum() const;
 
-    void setSum(double sum);
+    void setSum(long int sum);
 
     void printOperations();
 
@@ -47,7 +47,7 @@ private:
     double mean;
     int max;
     int min;
-    int sum;
+    long sum;
 };
 
 

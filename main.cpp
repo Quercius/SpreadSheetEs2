@@ -39,7 +39,7 @@ int main() {
     mvprintw(yOp, xOp - 10, "Min:");
     mvprintw(yOp++, xOp, "%d", operations.getMin());
     mvprintw(yOp, xOp - 10, "Sum:");
-    mvprintw(yOp++, xOp, "%d", operations.getSum());
+    mvprintw(yOp++, xOp, "%ld", operations.getSum());
     mvprintw(yOp, xOp - 10, "Mean:");
     mvprintw(yOp, xOp, "%f", operations.getMean());
 
@@ -71,8 +71,8 @@ int main() {
             case 55:
             case 56:
             case 57:
-                if (nCifre == 9) {
-                    mvprintw(y, x + nCifre + 3, "WARNING: new value must be shorter than 10 characters!");
+                if (nCifre == 7) {
+                    mvprintw(y, x + nCifre + 3, "WARNING: new value must be shorter than 8 characters!");
                     move(y, x + nCifre);
                     break;
                 }
@@ -116,7 +116,7 @@ int main() {
                     mvprintw(yOp, xOp - 10, "Min:");
                     mvprintw(yOp++, xOp, "%d", operations.getMin());
                     mvprintw(yOp, xOp - 10, "Sum:");
-                    mvprintw(yOp++, xOp, "%d", operations.getSum());
+                    mvprintw(yOp++, xOp, "%ld", operations.getSum());
                     mvprintw(yOp, xOp - 10, "Mean:");
                     mvprintw(yOp, xOp, "%f", operations.getMean());
 
@@ -160,7 +160,7 @@ int main() {
                     mvprintw(yOp, xOp - 10, "Min:");
                     mvprintw(yOp++, xOp, "%d", operations.getMin());
                     mvprintw(yOp, xOp - 10, "Sum:");
-                    mvprintw(yOp++, xOp, "%d", operations.getSum());
+                    mvprintw(yOp++, xOp, "%ld", operations.getSum());
                     mvprintw(yOp, xOp - 10, "Mean:");
                     mvprintw(yOp, xOp, "%f", operations.getMean());
 
@@ -183,7 +183,7 @@ int main() {
                     move(y, x + nCifre);
                     break;
                 }
-                if (nCifre == 9) {
+                if (nCifre == 7) {
                     move(y, x);
                     clrtoeol();
                     nCifre--;
@@ -210,7 +210,6 @@ int main() {
 
             default:
                 break;
-
         }
     }
 }
