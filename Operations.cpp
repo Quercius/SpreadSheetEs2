@@ -20,7 +20,11 @@ void Operations::update() {
     for (auto itr = std::begin(this->values); itr != std::end(this->values); itr++) {
         sumToMean += *(itr);
     }
-    setMean(sumToMean / this->values.size());
+    if (this->values.size() != 0) {
+        setMean(sumToMean / this->values.size());
+    } else {
+        setMean(0.0);
+    }
 
     //update min
     int actualMin = *(std::begin(this->values));
