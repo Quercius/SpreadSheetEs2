@@ -13,7 +13,7 @@
 class Values : public Subject {
 public:
 
-    Values();
+    Values() {};
 
     virtual ~Values() {};
 

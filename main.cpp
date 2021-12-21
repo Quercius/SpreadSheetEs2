@@ -8,8 +8,7 @@
 
 
 int main() {
-    std::list<int> vls = {};
-    Values values(vls);
+    Values values;
     Operations operations(&values);
 
     int newValue = 0;
