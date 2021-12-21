@@ -13,7 +13,7 @@
 class Values : public Subject {
 public:
 
-    Values(std::list<int> vls) : values(vls) {};
+    Values();
 
     virtual ~Values() {};
 
