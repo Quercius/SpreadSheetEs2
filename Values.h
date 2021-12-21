@@ -31,6 +31,8 @@ public:
 
     void printValues();
 
+    const std::list<Observer *> &getObservers() const;
+
 private:
     std::list<int> values;
     std::list<Observer *> observers;

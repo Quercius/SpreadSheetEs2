@@ -39,3 +39,7 @@ void Values::printValues() {
         std::cout << *itr << " " << std::endl;
     }
 }
+
+const std::list<Observer *> &Values::getObservers() const {
+    return observers;
+}
