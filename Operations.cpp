@@ -82,3 +82,11 @@ void Operations::printOperations() {
               << "\nSum: " << this->getSum() << "\nMean: " << this->getMean() << std::endl;
 
 }
+
+Values *Operations::getSubject() const {
+    return subject;
+}
+
+const std::list<int> &Operations::getValues() const {
+    return values;
+}

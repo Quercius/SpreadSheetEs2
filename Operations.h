@@ -41,6 +41,10 @@ public:
 
     void printOperations();
 
+    Values *getSubject() const;
+
+    const std::list<int> &getValues() const;
+
 private:
     Values *subject;
     std::list<int> values;
