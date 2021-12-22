@@ -87,6 +87,6 @@ Values *Operations::getSubject() const {
     return subject;
 }
 
-const std::list<int> &Operations::getValues() const {
+const std::list<int> &Operations::getOpValues() const {
     return values;
 }

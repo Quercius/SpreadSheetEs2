@@ -43,7 +43,7 @@ public:
 
     Values *getSubject() const;
 
-    const std::list<int> &getValues() const;
+    const std::list<int> &getOpValues() const;
 
 private:
     Values *subject;
