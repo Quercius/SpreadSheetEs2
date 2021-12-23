@@ -15,7 +15,7 @@ void Values::subscribe(Observer *o) {
 }
 
 void Values::unsubscribe(Observer *o) {
-    this->observer = o;
+    this->observer = nullptr;
 }
 
 const std::list<int> Values::getValues() const {
