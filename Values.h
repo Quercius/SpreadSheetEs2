@@ -31,11 +31,11 @@ public:
 
     void printValues();
 
-    const std::list<Observer *> &getObservers() const;
+    Observer *getObserver() const;
 
 private:
     std::list<int> values;
-    std::list<Observer *> observers;
+    Observer *observer;
 
 
 };

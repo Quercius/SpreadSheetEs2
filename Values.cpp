@@ -7,16 +7,15 @@
 #include "Values.h"
 
 void Values::notify() {
-    for (auto itr = std::begin(this->observers); itr != std::end(this->observers); itr++)
-        (*itr)->update();
+    observer->update();
 }
 
 void Values::subscribe(Observer *o) {
-    this->observers.push_back(o);
+    this->observer = o;
 }
 
 void Values::unsubscribe(Observer *o) {
-    this->observers.remove(o);
+    this->observer = o;
 }
 
 const std::list<int> Values::getValues() const {
@@ -40,6 +39,6 @@ void Values::printValues() {
     }
 }
 
-const std::list<Observer *> &Values::getObservers() const {
-    return observers;
+Observer *Values::getObserver() const {
+    return observer;
 }
