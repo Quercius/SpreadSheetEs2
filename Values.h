@@ -7,13 +7,28 @@
 
 
 #include "Subject.h"
+#include "Cell.h"
 #include <vector>
 #include <list>
+
 
 class Values : public Subject {
 public:
 
-    Values() {};
+    Values() {
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 11; j++) {
+                if (i == 0)
+                    values.push_back(Cell("a", j, 0));
+                else if (i == 1)
+                    values.push_back(Cell("b", j, 0));
+                else if (i == 2)
+                    values.push_back(Cell("c", j, 0));
+                else
+                    values.push_back(Cell("d", j, 0));
+            }
+        }
+    };
 
     virtual ~Values() {};
 
@@ -23,18 +38,18 @@ public:
 
     virtual void notify() override;
 
-    const std::list<int> getValues() const;
+    const std::list<Cell> getValues() const;
 
-    void addValue(int value);
+    //void addValue(std::string x, int y, int value);
 
-    void removeValue(int value);
+    //void removeValue(std::string x, int y);
 
     void printValues();
 
     Observer *getObserver() const;
 
 private:
-    std::list<int> values;
+    std::list<Cell> values;
     Observer *observer;
 
 

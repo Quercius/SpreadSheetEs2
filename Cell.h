@@ -10,11 +10,11 @@
 
 class Cell {
 public:
-    Cell(char x, int y, int value) : column(x), row(y), value(value) {}
+    Cell(std::string x, int y, int value) : column(x), row(y), value(value) {}
 
-    char getColumn();
+    std::string getColumn();
 
-    void setColumn(const char *x);
+    void setColumn(std::string x);
 
     int getRow() const;
 
@@ -25,7 +25,7 @@ public:
     void setValue(int value);
 
 private:
-    char column;
+    std::string column;
     int row;
     int value;
 };

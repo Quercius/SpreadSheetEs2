@@ -18,11 +18,11 @@ void Values::unsubscribe(Observer *o) {
     this->observer = nullptr;
 }
 
-const std::list<int> Values::getValues() const {
+const std::list<Cell> Values::getValues() const {
     return values;
 }
 
-void Values::addValue(int value) {
+/*void Values::addValue(std::char) {
     values.push_back(value);
     notify();
 }
@@ -37,7 +37,7 @@ void Values::printValues() {
     for (auto itr = std::begin(this->values); itr != std::end(this->values); itr++) {
         std::cout << *itr << " " << std::endl;
     }
-}
+}*/
 
 Observer *Values::getObserver() const {
     return observer;

@@ -4,13 +4,13 @@
 
 #include "Cell.h"
 
-char Cell::getColumn() {
+std::string Cell::getColumn() {
     return column;
 }
 
-void Cell::setColumn(const char *x) {
+void Cell::setColumn(std::string x) {
     if (x == "a" || x == "b" || x == "c" || x == "d") {
-        Cell::column = *x;
+        Cell::column = x;
     }
 }
 

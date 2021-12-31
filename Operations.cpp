@@ -7,86 +7,87 @@
 
 void Operations::update() {
     this->values = subject->getValues();
+}
 
     //update sum
-    long int actualSum = 0;
-    for (auto itr = std::begin(this->values); itr != std::end(this->values); itr++) {
-        actualSum += *(itr);
-    }
-    setSum(actualSum);
+/*long int actualSum = 0;
+for (auto itr = std::begin(this->values); itr != std::end(this->values); itr++) {
+    actualSum += *(itr);
+}
+setSum(actualSum);
 
-    //update mean
-    double sumToMean = 0.0;
-    for (auto itr = std::begin(this->values); itr != std::end(this->values); itr++) {
-        sumToMean += *(itr);
-    }
-    if (this->values.size() != 0) {
-        setMean(sumToMean / this->values.size());
-    } else {
-        setMean(0.0);
-    }
+//update mean
+double sumToMean = 0.0;
+for (auto itr = std::begin(this->values); itr != std::end(this->values); itr++) {
+    sumToMean += *(itr);
+}
+if (this->values.size() != 0) {
+    setMean(sumToMean / this->values.size());
+} else {
+    setMean(0.0);
+}
 
-    //update min
-    int actualMin = *(std::begin(this->values));
-    for (auto itr = std::begin(this->values); itr != std::end(this->values); itr++) {
-        if (*itr <= actualMin) {
-            actualMin = *itr;
-        }
+//update min
+int actualMin = *(std::begin(this->values));
+for (auto itr = std::begin(this->values); itr != std::end(this->values); itr++) {
+    if (*itr <= actualMin) {
+        actualMin = *itr;
     }
-    setMin(actualMin);
+}
+setMin(actualMin);
 
-    //update max
-    int actualMax = *(std::begin(this->values));
-    for (auto itr = std::begin(this->values); itr != std::end(this->values); itr++) {
-        if (*itr >= actualMax) {
-            actualMax = *itr;
-        }
+//update max
+int actualMax = *(std::begin(this->values));
+for (auto itr = std::begin(this->values); itr != std::end(this->values); itr++) {
+    if (*itr >= actualMax) {
+        actualMax = *itr;
     }
-    setMax(actualMax);
+}
+setMax(actualMax);
 }
 
 long double Operations::getMean() const {
-    return mean;
+return mean;
 }
 
 void Operations::setMean(long double mean) {
-    Operations::mean = mean;
+Operations::mean = mean;
 }
 
 int Operations::getMax() const {
-    return max;
+return max;
 }
 
 void Operations::setMax(int max) {
-    Operations::max = max;
+Operations::max = max;
 }
 
 int Operations::getMin() const {
-    return min;
+return min;
 }
 
 void Operations::setMin(int min) {
-    Operations::min = min;
+Operations::min = min;
 }
 
 long int Operations::getSum() const {
-    return sum;
+return sum;
 }
 
 void Operations::setSum(long int sum) {
-    Operations::sum = sum;
+Operations::sum = sum;
 }
 
 void Operations::printOperations() {
-    std::cout << "\nMax:" << this->getMax() << "\nMin: " << this->getMin()
-              << "\nSum: " << this->getSum() << "\nMean: " << this->getMean() << std::endl;
+std::cout << "\nMax:" << this->getMax() << "\nMin: " << this->getMin()
+          << "\nSum: " << this->getSum() << "\nMean: " << this->getMean() << std::endl;
 
-}
+}*/
 
 Values *Operations::getSubject() const {
     return subject;
 }
 
-const std::list<int> &Operations::getOpValues() const {
+const std::list<Cell> &Operations::getOpValues() const {
     return values;
 }
