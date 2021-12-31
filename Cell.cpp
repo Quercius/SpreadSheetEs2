@@ -4,23 +4,23 @@
 
 #include "Cell.h"
 
-const char Cell::getX() const {
-    return *x;
+char Cell::getColumn() {
+    return column;
 }
 
-void Cell::setX(const char *x) {
+void Cell::setColumn(const char *x) {
     if (x == "a" || x == "b" || x == "c" || x == "d") {
-        Cell::x = x;
+        Cell::column = *x;
     }
 }
 
-int Cell::getY() const {
-    return y;
+int Cell::getRow() const {
+    return row;
 }
 
-void Cell::setY(int y) {
+void Cell::setRow(int y) {
     if (y < 12)
-        Cell::y = y;
+        Cell::row = y;
 }
 
 int Cell::getValue() const {

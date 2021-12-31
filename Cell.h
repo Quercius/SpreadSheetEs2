@@ -10,23 +10,23 @@
 
 class Cell {
 public:
-    Cell(char x, int y, int value) : x(x), y(y), value(value) {}
+    Cell(char x, int y, int value) : column(x), row(y), value(value) {}
 
-    const char getX() const;
+    char getColumn();
 
-    void setX(const char *x);
+    void setColumn(const char *x);
 
-    int getY() const;
+    int getRow() const;
 
-    void setY(int y);
+    void setRow(int y);
 
     int getValue() const;
 
     void setValue(int value);
 
 private:
-    const char *x;
-    int y;
+    char column;
+    int row;
     int value;
 };
 
