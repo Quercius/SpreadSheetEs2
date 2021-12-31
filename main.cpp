@@ -11,9 +11,10 @@ int main() {
     Values values;
     Operations operations(&values);
     std::vector<Cell> lista = values.getValues();
-    for (auto itr = std::begin(lista); itr != std::end(lista); itr++) {
-        std::cout << itr->getColumn() << itr->getRow() << itr->getValue() << std::endl;
-    }
+    values.addValue("b", 2, 15);
+    lista = values.getValues();
+    values.printValues();
+
 }
 
 /*int newValue = 0;

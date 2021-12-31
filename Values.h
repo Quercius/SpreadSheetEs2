@@ -39,9 +39,9 @@ public:
 
     const std::vector<Cell> getValues() const;
 
-    //void addValue(std::string x, int y, int value);
+    void addValue(std::string x, int y, int val);
 
-    //void removeValue(std::string x, int y);
+    void removeValue(std::string x, int y);
 
     void printValues();
 

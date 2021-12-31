@@ -22,23 +22,44 @@ const std::vector<Cell> Values::getValues() const {
     return values;
 }
 
-/*void Values::addValue(std::char) {
-    values.push_back(value);
-    notify();
+void Values::addValue(std::string x, int y, int val) {
+    int column;
+    if (x == "a") column = 0;
+    if (x == "b") column = 1;
+    if (x == "c") column = 2;
+    if (x == "d") column = 3;
+    if (values[column * 11 + y].getValue() != 0)
+        return;
+    else {
+        values[column * 11 + y].setValue(val);
+        notify();
+    }
+
 }
 
-void Values::removeValue(int value) {
-    values.remove(value);
-    notify();
+void Values::removeValue(std::string x, int y) {
+    int column;
+    if (x == "a") column = 0;
+    if (x == "b") column = 1;
+    if (x == "c") column = 2;
+    if (x == "d") column = 3;
+    if (values[column * 11 + y].getValue() != 0)
+        return;
+    else {
+        values[column * 11 + y].setValue(0);
+        notify();
+    }
 }
+
 
 void Values::printValues() {
     std::cout << "List:" << std::endl;
     for (auto itr = std::begin(this->values); itr != std::end(this->values); itr++) {
-        std::cout << *itr << " " << std::endl;
+        std::cout << itr->getColumn() << itr->getRow() << ": " << itr->getValue() << " " << std::endl;
     }
-}*/
+}
 
 Observer *Values::getObserver() const {
     return observer;
 }
+
