@@ -9,7 +9,6 @@
 #include "Subject.h"
 #include "Cell.h"
 #include <vector>
-#include <list>
 
 
 class Values : public Subject {
@@ -19,13 +18,13 @@ public:
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 11; j++) {
                 if (i == 0)
-                    values.push_back(Cell("a", j, 0));
+                    values.emplace_back("a", j, 0);
                 else if (i == 1)
-                    values.push_back(Cell("b", j, 0));
+                    values.emplace_back("b", j, 0);
                 else if (i == 2)
-                    values.push_back(Cell("c", j, 0));
+                    values.emplace_back("c", j, 0);
                 else
-                    values.push_back(Cell("d", j, 0));
+                    values.emplace_back("d", j, 0);
             }
         }
     };
@@ -38,7 +37,7 @@ public:
 
     virtual void notify() override;
 
-    const std::list<Cell> getValues() const;
+    const std::vector<Cell> getValues() const;
 
     //void addValue(std::string x, int y, int value);
 
@@ -49,7 +48,7 @@ public:
     Observer *getObserver() const;
 
 private:
-    std::list<Cell> values;
+    std::vector<Cell> values;
     Observer *observer;
 
 

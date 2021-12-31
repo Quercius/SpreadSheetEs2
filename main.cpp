@@ -10,7 +10,7 @@
 int main() {
     Values values;
     Operations operations(&values);
-    std::list<Cell> lista = values.getValues();
+    std::vector<Cell> lista = values.getValues();
     for (auto itr = std::begin(lista); itr != std::end(lista); itr++) {
         std::cout << itr->getColumn() << itr->getRow() << itr->getValue() << std::endl;
     }

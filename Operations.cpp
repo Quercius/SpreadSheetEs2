@@ -88,6 +88,6 @@ Values *Operations::getSubject() const {
     return subject;
 }
 
-const std::list<Cell> &Operations::getOpValues() const {
+const std::vector<Cell> &Operations::getOpValues() const {
     return values;
 }

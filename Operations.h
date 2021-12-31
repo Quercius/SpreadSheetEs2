@@ -43,11 +43,11 @@ public:
 
     Values *getSubject() const;
 
-    const std::list<Cell> &getOpValues() const;
+    const std::vector<Cell> &getOpValues() const;
 
 private:
     Values *subject;
-    std::list<Cell> values;
+    std::vector<Cell> values;
     long double mean;
     int max;
     int min;

@@ -18,7 +18,7 @@ void Values::unsubscribe(Observer *o) {
     this->observer = nullptr;
 }
 
-const std::list<Cell> Values::getValues() const {
+const std::vector<Cell> Values::getValues() const {
     return values;
 }
 
