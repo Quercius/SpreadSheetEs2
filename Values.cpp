@@ -60,7 +60,7 @@ void Values::printValues() {
     }
 }
 
-Observer *Values::getObserver() const {
-    return observer;
+std::list<Observer *> Values::getObserver() const {
+    return observers;
 }
 

@@ -47,7 +47,7 @@ public:
 
     void printValues();
 
-    Observer *getObserver() const;
+    std::list<Observer *> getObserver() const;
 
 private:
     std::vector<Cell> values;

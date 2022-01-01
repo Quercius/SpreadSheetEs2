@@ -22,6 +22,10 @@ int main() {
     Mean mean = Mean(&values);
     Sum sum = Sum(&values);
 
+    std::cout << max.getMax() << std::endl;
+    std::cout << min.getMin() << std::endl;
+    std::cout << mean.getMean() << std::endl;
+    std::cout << sum.getSum() << std::endl;
 }
 
 /*int newValue = 0;
