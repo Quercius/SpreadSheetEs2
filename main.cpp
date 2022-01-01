@@ -17,6 +17,7 @@ int main() {
     values.addValue("c", 7, 12);
     values.replaceValue("b", 2, 31);
     values.addValue("b", 2, 32);
+    values.addValue("f", 4, 143);
     values.printValues();
 
 

@@ -26,9 +26,11 @@ const std::vector<Cell> Values::getValues() const {
 void Values::addValue(std::string x, int y, int val) {
     int column;
     if (x == "a") column = 0;
-    if (x == "b") column = 1;
-    if (x == "c") column = 2;
-    if (x == "d") column = 3;
+    else if (x == "b") column = 1;
+    else if (x == "c") column = 2;
+    else if (x == "d") column = 3;
+    else return;
+
     if (values[column * 11 + y].getValue() != 0)
         return;
     else {
@@ -41,9 +43,11 @@ void Values::addValue(std::string x, int y, int val) {
 void Values::removeValue(std::string x, int y) {
     int column;
     if (x == "a") column = 0;
-    if (x == "b") column = 1;
-    if (x == "c") column = 2;
-    if (x == "d") column = 3;
+    else if (x == "b") column = 1;
+    else if (x == "c") column = 2;
+    else if (x == "d") column = 3;
+    else return;
+
     if (values[column * 11 + y].getValue() != 0)
         return;
     else {
@@ -55,9 +59,10 @@ void Values::removeValue(std::string x, int y) {
 void Values::replaceValue(std::string x, int y, int val) {
     int column;
     if (x == "a") column = 0;
-    if (x == "b") column = 1;
-    if (x == "c") column = 2;
-    if (x == "d") column = 3;
+    else if (x == "b") column = 1;
+    else if (x == "c") column = 2;
+    else if (x == "d") column = 3;
+    else return;
 
     values[column * 11 + y].setValue(val);
     notify();
