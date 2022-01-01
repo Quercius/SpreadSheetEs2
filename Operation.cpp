@@ -6,7 +6,6 @@
 
 void Operation::update() {
     opValues = subject->getValues();
-    compute();
 }
 
 const std::vector<Cell> &Operation::getOpValues() const {
