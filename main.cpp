@@ -3,13 +3,11 @@
 #include <ncurses/ncurses.h>
 #include <list>
 #include "Values.h"
-#include "Operations.h"
 #include "version.h"
 
 
 int main() {
     Values values;
-    Operations operations(&values);
     std::vector<Cell> lista = values.getValues();
     values.addValue("b", 2, 15);
     lista = values.getValues();
