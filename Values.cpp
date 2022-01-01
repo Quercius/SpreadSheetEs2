@@ -52,6 +52,16 @@ void Values::removeValue(std::string x, int y) {
     }
 }
 
+void Values::replaceValue(std::string x, int y, int val) {
+    int column;
+    if (x == "a") column = 0;
+    if (x == "b") column = 1;
+    if (x == "c") column = 2;
+    if (x == "d") column = 3;
+
+    values[column * 11 + y].setValue(val);
+    notify();
+}
 
 void Values::printValues() {
     std::cout << "List:" << std::endl;
@@ -63,4 +73,6 @@ void Values::printValues() {
 std::list<Observer *> Values::getObserver() const {
     return observers;
 }
+
+
 

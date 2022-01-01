@@ -45,6 +45,8 @@ public:
 
     void removeValue(std::string x, int y);
 
+    void replaceValue(std::string x, int y, int val);
+
     void printValues();
 
     std::list<Observer *> getObserver() const;

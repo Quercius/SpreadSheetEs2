@@ -14,7 +14,10 @@ int main() {
     Values values;
     std::vector<Cell> lista = values.getValues();
     values.addValue("b", 2, 15);
-    //values.printValues();
+    values.addValue("c", 7, 12);
+    values.replaceValue("b", 2, 31);
+    values.addValue("b", 2, 32);
+    values.printValues();
 
 
     Max max = Max(&values);
