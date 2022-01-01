@@ -25,8 +25,6 @@ public:
 
 protected:
     std::vector<Cell> opValues;
-
-private:
     Values *subject;
 };
 

@@ -4,14 +4,23 @@
 #include <list>
 #include "Values.h"
 #include "version.h"
+#include "Max.h"
+#include "Min.h"
+#include "Mean.h"
+#include "Sum.h"
 
 
 int main() {
     Values values;
     std::vector<Cell> lista = values.getValues();
     values.addValue("b", 2, 15);
-    lista = values.getValues();
     values.printValues();
+
+
+    Max max = Max(&values);
+    Min min = Min(&values);
+    Mean mean = Mean(&values);
+    Sum sum = Sum(&values);
 
 }
 

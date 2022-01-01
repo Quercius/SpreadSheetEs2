@@ -7,15 +7,16 @@
 #include "Values.h"
 
 void Values::notify() {
-    observer->update();
+    for (auto itr = std::begin(observers); itr != std::end(observers); itr++)
+        (*itr)->update();
 }
 
 void Values::subscribe(Observer *o) {
-    this->observer = o;
+    observers.push_back(o);
 }
 
 void Values::unsubscribe(Observer *o) {
-    this->observer = nullptr;
+    observers.remove(o);
 }
 
 const std::vector<Cell> Values::getValues() const {

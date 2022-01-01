@@ -8,7 +8,9 @@
 
 #include "Subject.h"
 #include "Cell.h"
+#include "Observer.h"
 #include <vector>
+#include <list>
 
 
 class Values : public Subject {
@@ -49,7 +51,7 @@ public:
 
 private:
     std::vector<Cell> values;
-    Observer *observer;
+    std::list<Observer *> observers;
 
 
 };
