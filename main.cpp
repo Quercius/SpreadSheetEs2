@@ -12,229 +12,283 @@
 
 int main() {
     Values values;
-    std::vector<Cell> lista = values.getValues();
     values.addValue("b", 2, 15);
     values.addValue("c", 7, 12);
     values.replaceValue("b", 2, 31);
     values.addValue("b", 2, 32);
     values.addValue("f", 4, 143);
-    values.printValues();
-
-
     Max max = Max(&values);
     Min min = Min(&values);
     Mean mean = Mean(&values);
     Sum sum = Sum(&values);
 
-    std::cout << max.getMax() << std::endl;
-    std::cout << min.getMin() << std::endl;
-    std::cout << mean.getMean() << std::endl;
-    std::cout << sum.getSum() << std::endl;
-}
+    int newValue = 0;
 
-/*int newValue = 0;
+    initscr();
 
-initscr();
+    noecho();
 
-noecho();
-int x, y, xVal, yVal, xOp, yOp, xLeg, yLeg;
-x = 15;
-y = 3;
-xVal = 6;
-yVal = 6;
-xOp = 80;
-yOp = 6;
-xLeg = 5;
-yLeg = 22;
+    int x, y, xVal, yVal, xOp, yOp, xLeg, yLeg;
+    x = 18;
+    y = 2;
+    xVal = 3;
+    yVal = 6;
+    xOp = 80;
+    yOp = 6;
+    xLeg = 5;
+    yLeg = 20;
 
-int nCifre = 0;
-
-mvprintw(yVal - 1, xVal, "List:");
-std::list<int> tmpValues = values.getValues();
-for (auto itr = std::begin(tmpValues); itr != std::end(tmpValues); itr++) {
-    mvprintw(yVal++, xVal, "%d", *itr);
-}
-
-mvprintw(yOp, xOp - 10, "Max:");
-mvprintw(yOp++, xOp, "%d", operations.getMax());
-mvprintw(yOp, xOp - 10, "Min:");
-mvprintw(yOp++, xOp, "%d", operations.getMin());
-mvprintw(yOp, xOp - 10, "Sum:");
-mvprintw(yOp++, xOp, "%ld", operations.getSum());
-mvprintw(yOp, xOp - 10, "Mean:");
-mvprintw(yOp, xOp, "%Lf", operations.getMean());
-
-mvprintw(y, x - 10, "New value:");
-mvprintw(y, x, "%d", 0);
-
-mvprintw(yLeg++, xLeg, "Press numbers to generate new value");
-mvprintw(yLeg++, xLeg, "Press d to delete the last number of the new value");
-mvprintw(yLeg++, xLeg, "Press a to add the new value");
-mvprintw(yLeg++, xLeg, "Press r to remove the new value");
-mvprintw(yLeg++, xLeg, "Press e to exit and show results");
-mvprintw(yLeg, xLeg, "Press CTRL(CMND)+C to close the window");
-move(y, x + nCifre);
+    int nCifre = 0;
 
 
+    std::vector<Cell> tmpValues = values.getValues();
+    int nPrinted = 0;
 
-//show values and operations
+    //print column values
+    mvprintw(yVal - 2, xVal + 11, "a");
+    mvprintw(yVal - 2, xVal + 22, "b");
+    mvprintw(yVal - 2, xVal + 33, "c");
+    mvprintw(yVal - 2, xVal + 44, "d");
 
+    //print row values
+    for (int i = 0; i < 10; i++)
+        mvprintw(yVal++, xVal, "%d", i);
 
-while (1) {
-    int choice = getch();
+    //print cell values
+    for (auto itr = std::begin(tmpValues); itr != std::end(tmpValues); itr++) {
+        if (nPrinted % 10 == 0) {
+            xVal += 11;
+            yVal = 6;
+        }
+        mvprintw(yVal++, xVal, "%d", itr->getValue());
+        nPrinted++;
+    }
 
-    switch (choice) {
-        case 48:
-        case 49:
-        case 50:
-        case 51:
-        case 52:
-        case 53:
-        case 54:
-        case 55:
-        case 56:
-        case 57:
-            if (nCifre == 6) {
-                mvprintw(y, x + nCifre + 3, "WARNING: new value must be shorter than 7 characters!");
+    mvprintw(yOp, xOp - 10, "Max:");
+    mvprintw(yOp++, xOp, "%d", max.getMax());
+    mvprintw(yOp, xOp - 10, "Min:");
+    mvprintw(yOp++, xOp, "%d", min.getMin());
+    mvprintw(yOp, xOp - 10, "Sum:");
+    mvprintw(yOp++, xOp, "%ld", sum.getSum());
+    mvprintw(yOp, xOp - 10, "Mean:");
+    mvprintw(yOp, xOp, "%Lf", mean.getMean());
+
+    mvprintw(yLeg++, xLeg - 1, "-Write a value:");
+    mvprintw(yLeg++, xLeg, "Press numbers to generate new value");
+    mvprintw(yLeg++, xLeg, "Press d to delete the last number of the value");
+
+    mvprintw(yLeg++, xLeg - 1, "-Operation choice:");
+    mvprintw(yLeg++, xLeg, "Press a to add a value");
+    mvprintw(yLeg++, xLeg, "Press r to remove a value");
+
+    mvprintw(yLeg++, xLeg - 1, "-Press e to exit and show results");
+    mvprintw(yLeg, xLeg - 1, "-Press CTRL(CMND)+C to close the window");
+
+    mvprintw(y, x - 10, "New value:");
+    mvprintw(y, x, "%d", 0);
+
+    move(y, x + nCifre);
+
+    while (1) {
+        int choice = getch();
+
+        switch (choice) {
+            case 48:
+            case 49:
+            case 50:
+            case 51:
+            case 52:
+            case 53:
+            case 54:
+            case 55:
+            case 56:
+            case 57:
+                if (nCifre == 6) {
+                    mvprintw(y, x + nCifre + 3, "WARNING: new value must be shorter than 7 characters!");
+                    move(y, x + nCifre);
+                    break;
+                }
+                newValue = (newValue * 10) + (choice - 48);
+                mvprintw(y, x, "%d", newValue);
+                nCifre++;
                 move(y, x + nCifre);
                 break;
-            }
-            newValue = (newValue * 10) + (choice - 48);
-            mvprintw(y, x, "%d", newValue);
-            nCifre++;
-            move(y, x + nCifre);
-            break;
 
-        case 97:
-            if (newValue == 0) {
-                move(y, x + nCifre);
-                break;
-            } else {
-                values.addValue(newValue);
-                newValue = 0;
-                nCifre = 0;
-                clear();
-                tmpValues = values.getValues();
-                yVal = 6;
-                xVal = 6;
-                mvprintw(yVal - 1, xVal, "List:");
-                int count = 0;
-                for (auto itr = std::begin(tmpValues); itr != std::end(tmpValues); itr++) {
-                    count++;
-                    if (count == 44) {
-                        mvprintw(yVal++, xVal, "%d", *itr);
-                        mvprintw(yVal, xVal, "WARNING: the list cannot contain more values!");
+            case 97:
+                if (newValue == 0) {
+                    move(y, x + nCifre);
+                    break;
+                } else {
+                    bool added = false;
+                    tmpValues = values.getValues();
+                    for (auto itr = std::begin(tmpValues); itr != std::end(tmpValues); itr++) {
+                        if (itr->getValue() == 0 && !added) {
+                            values.addValue(itr->getColumn(), itr->getRow(), newValue);
+                            added = true;
+                        }
+                    }
+                    if (!added) {
+                        mvprintw(yVal, xVal - 39, "WARNING: the list cannot contain more values!");
                         move(y, x + nCifre);
                         break;
                     }
-                    if (count == 12 || count == 23 || count == 34) {
-                        yVal = 6;
-                        xVal += 14;
+
+                    newValue = 0;
+                    nCifre = 0;
+                    clear();
+                    tmpValues = values.getValues();
+                    yVal = 6;
+                    xVal = 3;
+                    //print column values
+                    mvprintw(yVal - 2, xVal + 11, "a");
+                    mvprintw(yVal - 2, xVal + 22, "b");
+                    mvprintw(yVal - 2, xVal + 33, "c");
+                    mvprintw(yVal - 2, xVal + 44, "d");
+                    //print row values
+                    for (int i = 0; i < 10; i++)
+                        mvprintw(yVal++, xVal, "%d", i);
+                    //print cell values
+                    for (auto itr = std::begin(tmpValues); itr != std::end(tmpValues); itr++) {
+                        if (nPrinted % 10 == 0) {
+                            xVal += 11;
+                            yVal = 6;
+                        }
+                        mvprintw(yVal++, xVal, "%d", itr->getValue());
+                        nPrinted++;
                     }
-                    mvprintw(yVal++, xVal, "%d", *itr);
+
+                    yOp = 6;
+                    mvprintw(yOp, xOp - 10, "Max:");
+                    mvprintw(yOp++, xOp, "%d", max.getMax());
+                    mvprintw(yOp, xOp - 10, "Min:");
+                    mvprintw(yOp++, xOp, "%d", min.getMin());
+                    mvprintw(yOp, xOp - 10, "Sum:");
+                    mvprintw(yOp++, xOp, "%ld", sum.getSum());
+                    mvprintw(yOp, xOp - 10, "Mean:");
+                    mvprintw(yOp, xOp, "%Lf", mean.getMean());
+
+                    yLeg = 20;
+                    mvprintw(yLeg++, xLeg - 1, "-Write a value:");
+                    mvprintw(yLeg++, xLeg, "Press numbers to generate new value");
+                    mvprintw(yLeg++, xLeg, "Press d to delete the last number of the value");
+
+                    mvprintw(yLeg++, xLeg - 1, "-Operation choice:");
+                    mvprintw(yLeg++, xLeg, "Press a to add a value");
+                    mvprintw(yLeg++, xLeg, "Press r to remove a value");
+
+                    mvprintw(yLeg++, xLeg - 1, "-Press e to exit and show results");
+                    mvprintw(yLeg, xLeg - 1, "-Press CTRL(CMND)+C to close the window");
+
+                    mvprintw(y, x - 10, "New value:");
+                    mvprintw(y, x, "%d", 0);
+
+                    move(y, x + nCifre);
+                    break;
                 }
-                yOp = 6;
-                mvprintw(yOp, xOp - 10, "Max:");
-                mvprintw(yOp++, xOp, "%d", operations.getMax());
-                mvprintw(yOp, xOp - 10, "Min:");
-                mvprintw(yOp++, xOp, "%d", operations.getMin());
-                mvprintw(yOp, xOp - 10, "Sum:");
-                mvprintw(yOp++, xOp, "%ld", operations.getSum());
-                mvprintw(yOp, xOp - 10, "Mean:");
-                mvprintw(yOp, xOp, "%Lf", operations.getMean());
 
-                yLeg = 22;
-                mvprintw(y, x - 10, "New value:");
-                mvprintw(yLeg++, xLeg, "Press numbers to generate new value");
-                mvprintw(yLeg++, xLeg, "Press d to delete the last number of the new value");
-                mvprintw(yLeg++, xLeg, "Press a to add the new value");
-                mvprintw(yLeg++, xLeg, "Press r to remove the new value");
-                mvprintw(yLeg++, xLeg, "Press e to exit and show results");
-                mvprintw(yLeg, xLeg, "Press CTRL(CMND)+C to close the window");
-
-                move(y, x + nCifre);
-                break;
-            }
-
-        case 114:
-            if (newValue == 0) {
-                break;
-            } else {
-                values.removeValue(newValue);
-                newValue = 0;
-                nCifre = 0;
-                clear();
-                tmpValues = values.getValues();
-                yVal = 6;
-                xVal = 6;
-                mvprintw(yVal - 1, xVal, "List:");
-                int count = 0;
-                for (auto itr = std::begin(tmpValues); itr != std::end(tmpValues); itr++) {
-                    mvprintw(yVal++, xVal, "%d", *itr);
-                    count++;
-                    if (count == 12 || count == 23 || count == 34) {
-                        yVal = 6;
-                        xVal += 14;
+            case 114:
+                if (newValue == 0) {
+                    break;
+                } else {
+                    bool removed = false;
+                    tmpValues = values.getValues();
+                    for (auto itr = std::begin(tmpValues); itr != std::end(tmpValues); itr++) {
+                        if (itr->getValue() == newValue && !removed) {
+                            values.replaceValue(itr->getColumn(), itr->getRow(), 0);
+                            removed = true;
+                        }
                     }
+
+                    newValue = 0;
+                    nCifre = 0;
+                    clear();
+                    tmpValues = values.getValues();
+                    yVal = 6;
+                    xVal = 3;
+                    //print column values
+                    mvprintw(yVal - 2, xVal + 11, "a");
+                    mvprintw(yVal - 2, xVal + 22, "b");
+                    mvprintw(yVal - 2, xVal + 33, "c");
+                    mvprintw(yVal - 2, xVal + 44, "d");
+                    //print row values
+                    for (int i = 0; i < 10; i++)
+                        mvprintw(yVal++, xVal, "%d", i);
+                    //print cell values
+                    for (auto itr = std::begin(tmpValues); itr != std::end(tmpValues); itr++) {
+                        if (nPrinted % 10 == 0) {
+                            xVal += 11;
+                            yVal = 6;
+                        }
+                        mvprintw(yVal++, xVal, "%d", itr->getValue());
+                        nPrinted++;
+                    }
+
+                    yOp = 6;
+                    mvprintw(yOp, xOp - 10, "Max:");
+                    mvprintw(yOp++, xOp, "%d", max.getMax());
+                    mvprintw(yOp, xOp - 10, "Min:");
+                    mvprintw(yOp++, xOp, "%d", min.getMin());
+                    mvprintw(yOp, xOp - 10, "Sum:");
+                    mvprintw(yOp++, xOp, "%ld", sum.getSum());
+                    mvprintw(yOp, xOp - 10, "Mean:");
+                    mvprintw(yOp, xOp, "%Lf", mean.getMean());
+
+                    yLeg = 20;
+                    mvprintw(yLeg++, xLeg - 1, "-Write a value:");
+                    mvprintw(yLeg++, xLeg, "Press numbers to generate new value");
+                    mvprintw(yLeg++, xLeg, "Press d to delete the last number of the value");
+
+                    mvprintw(yLeg++, xLeg - 1, "-Operation choice:");
+                    mvprintw(yLeg++, xLeg, "Press a to add a value");
+                    mvprintw(yLeg++, xLeg, "Press r to remove a value");
+
+                    mvprintw(yLeg++, xLeg - 1, "-Press e to exit and show results");
+                    mvprintw(yLeg, xLeg - 1, "-Press CTRL(CMND)+C to close the window");
+
+                    mvprintw(y, x - 10, "New value:");
+                    mvprintw(y, x, "%d", 0);
+
+                    move(y, x + nCifre);
+
+                    break;
                 }
-                yOp = 6;
-                mvprintw(yOp, xOp - 10, "Max:");
-                mvprintw(yOp++, xOp, "%d", operations.getMax());
-                mvprintw(yOp, xOp - 10, "Min:");
-                mvprintw(yOp++, xOp, "%d", operations.getMin());
-                mvprintw(yOp, xOp - 10, "Sum:");
-                mvprintw(yOp++, xOp, "%ld", operations.getSum());
-                mvprintw(yOp, xOp - 10, "Mean:");
-                mvprintw(yOp, xOp, "%Lf", operations.getMean());
 
-                yLeg = 22;
-                mvprintw(y, x - 10, "New value:");
-                mvprintw(yLeg++, xLeg, "Press numbers to generate new value");
-                mvprintw(yLeg++, xLeg, "Press d to delete the last number of the new value");
-                mvprintw(yLeg++, xLeg, "Press a to add the new value");
-                mvprintw(yLeg++, xLeg, "Press r to remove the new value");
-                mvprintw(yLeg++, xLeg, "Press e to exit and show results");
-                mvprintw(yLeg, xLeg, "Press CTRL(CMND)+C to close the window");
+            case 100:
+                if (nCifre == 0) {
+                    move(y, x + nCifre);
+                    break;
+                }
+                if (nCifre == 6) {
+                    move(y, x);
+                    clrtoeol();
+                    nCifre--;
+                    newValue = static_cast<int>(newValue / 10);
+                    mvprintw(y, x, "%d", newValue);
+                    break;
+                } else {
+                    mvdelch(y, x + nCifre - 1);
+                    nCifre--;
+                    newValue = static_cast<int>(newValue / 10);
+                    mvprintw(y, x, "%d", newValue);
+                    move(y, x + nCifre);
+                    break;
+                }
 
-                move(y, x + nCifre);
 
+            case 101:
+                endwin();
+                std::cout << "SpreadSheet - v." << VERSION << "\n" << std::endl;
+                values.printValues();
+                std::cout << "Max: " << max.getMax() << std::endl;
+                std::cout << "Min: " << min.getMin() << std::endl;
+                std::cout << "Mean: " << mean.getMean() << std::endl;
+                std::cout << "Sum: " << sum.getSum() << std::endl;
+                std::cout << "\nPress CTRL + C to exit" << std::endl;
                 break;
-            }
 
-        case 100:
-            if (nCifre == 0) {
-                move(y, x + nCifre);
+
+            default:
                 break;
-            }
-            if (nCifre == 6) {
-                move(y, x);
-                clrtoeol();
-                nCifre--;
-                newValue = static_cast<int>(newValue / 10);
-                mvprintw(y, x, "%d", newValue);
-                break;
-            } else {
-                mvdelch(y, x + nCifre - 1);
-                nCifre--;
-                newValue = static_cast<int>(newValue / 10);
-                mvprintw(y, x, "%d", newValue);
-                move(y, x + nCifre);
-                break;
-            }
-
-
-        case 101:
-            endwin();
-            std::cout << "SpreadSheet - v." << VERSION << "\n" << std::endl;
-            values.printValues();
-            operations.printOperations();
-            std::cout << "\nPress CTRL + C to exit" << std::endl;
-            break;
-
-
-        default:
-            break;
+        }
     }
 }
-}
-*/
