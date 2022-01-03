@@ -15,7 +15,7 @@ public:
 
     void compute() override;
 
-    long double getMean() const;
+    long double getMean();
 
 private:
     long double mean;

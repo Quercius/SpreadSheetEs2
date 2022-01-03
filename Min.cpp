@@ -12,6 +12,7 @@ void Min::compute() {
     }
 }
 
-int Min::getMin() const {
+int Min::getMin() {
+    compute();
     return min;
 }

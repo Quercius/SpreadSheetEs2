@@ -16,6 +16,7 @@ void Mean::compute() {
     mean /= count;
 }
 
-long double Mean::getMean() const {
+long double Mean::getMean() {
+    compute();
     return mean;
 }

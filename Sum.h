@@ -16,7 +16,7 @@ public:
 
     void compute() override;
 
-    int getSum() const;
+    int getSum();
 
 private:
     int sum;

@@ -15,7 +15,7 @@ public:
 
     void compute() override;
 
-    int getMax() const;
+    int getMax();
 
 private:
     int max;

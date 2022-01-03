@@ -13,6 +13,7 @@ void Max::compute() {
 
 }
 
-int Max::getMax() const {
+int Max::getMax() {
+    compute();
     return max;
 }

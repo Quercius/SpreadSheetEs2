@@ -15,7 +15,7 @@ public:
 
     void compute() override;
 
-    int getMin() const;
+    int getMin();
 
 private:
     int min;

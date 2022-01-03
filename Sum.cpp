@@ -11,6 +11,7 @@ void Sum::compute() {
     }
 }
 
-int Sum::getSum() const {
+int Sum::getSum() {
+    compute();
     return sum;
 }
