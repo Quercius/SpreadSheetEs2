@@ -7,7 +7,9 @@
 void Min::compute() {
     min = std::begin(opValues)->getValue();
     for (auto itr = std::begin(opValues); itr != std::end(opValues); itr++) {
-        if (itr->getValue() < min)
+        if (min == 0 && itr->getValue() != 0)
+            min = itr->getValue();
+        if (min != 0 && itr->getValue() != 0 && itr->getValue() < min)
             min = itr->getValue();
     }
 }
