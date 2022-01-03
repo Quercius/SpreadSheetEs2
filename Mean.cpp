@@ -13,7 +13,11 @@ void Mean::compute() {
             mean += itr->getValue();
         }
     }
-    mean /= count;
+    if (count == 0) {
+        mean = 0.0;
+    } else {
+        mean /= count;
+    }
 }
 
 long double Mean::getMean() {
