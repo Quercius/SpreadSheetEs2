@@ -70,9 +70,17 @@ void Values::replaceValue(std::string x, int y, int val) {
 
 void Values::printValues() {
     std::cout << "List:" << std::endl;
-    for (auto itr = std::begin(this->values); itr != std::end(this->values); itr++) {
-        std::cout << itr->getColumn() << itr->getRow() << ": " << itr->getValue() << " " << std::endl;
+    std::cout << std::endl;
+    auto itr = std::begin(values);
+    for (int i = 1; i < 11; i++) {
+        for (int j = 0; j < 4; j++) {
+            std::cout << itr->getColumn() << itr->getRow() << ": " << itr->getValue() << "       ";
+            itr += 10;
+        }
+        std::cout << std::endl;
+        itr = std::begin(values) + i;
     }
+    std::cout << std::endl;
 }
 
 std::list<Observer *> Values::getObserver() const {
