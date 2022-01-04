@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 14)
 
 add_subdirectory(test)
 
-set(SOURCE_FILES Subject.h Observer.h Values.cpp Values.h version.h)
+set(SOURCE_FILES Subject.h Observer.h Values.cpp Values.h version.h Cell.cpp Cell.h Operation.cpp Operation.h Max.cpp Max.h Sum.cpp Sum.h Min.cpp Min.h Mean.cpp Mean.h)
 add_library(core ${SOURCE_FILES})
 
 find_package(Curses REQUIRED)
