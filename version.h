@@ -7,6 +7,6 @@
 
 #include <string>
 
-const std::string VERSION = "1.0";
+const std::string VERSION = "1.1";
 
 #endif //SPREADSHEETES2_VERSION_H
