@@ -194,7 +194,7 @@ int main() {
                     tmpValues = values.getValues();
                     for (auto itr = std::begin(tmpValues); itr != std::end(tmpValues); itr++) {
                         if (itr->getValue() == newValue && !removed) {
-                            values.replaceValue(itr->getColumn(), itr->getRow(), 0);
+                            values.removeValue(itr->getColumn(), itr->getRow());
                             removed = true;
                         }
                     }

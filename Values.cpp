@@ -48,7 +48,7 @@ void Values::removeValue(std::string x, int y) {
     else if (x == "d") column = 3;
     else return;
 
-    if (values[column * 10 + y].getValue() != 0)
+    if (values[column * 10 + y].getValue() == 0)
         return;
     else {
         values[column * 10 + y].setValue(0);
