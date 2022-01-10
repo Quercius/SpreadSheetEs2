@@ -47,3 +47,16 @@ TEST_F(OperationsSuite, TestCompute) {
     ASSERT_EQ(30, sum.getSum());
 }
 
+TEST_F(OperationsSuite, TestModify) {
+    v.addValue("c", 3, 30);
+    ASSERT_EQ(30, max.getMax());
+    ASSERT_EQ(10, min.getMin());
+    ASSERT_EQ(20.0, mean.getMean());
+    ASSERT_EQ(40, sum.getSum());
+    v.replaceValue("c", 3, 20);
+    ASSERT_EQ(20, max.getMax());
+    ASSERT_EQ(10, min.getMin());
+    ASSERT_EQ(15.0, mean.getMean());
+    ASSERT_EQ(30, sum.getSum());
+}
+
