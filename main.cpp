@@ -12,11 +12,6 @@
 
 int main() {
     Values values;
-    values.addValue("b", 2, 15);
-    values.addValue("c", 7, 12);
-    values.replaceValue("b", 2, 31);
-    values.addValue("b", 2, 32);
-    values.addValue("f", 4, 143);
     Max max = Max(&values);
     Min min = Min(&values);
     Mean mean = Mean(&values);
