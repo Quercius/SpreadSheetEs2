@@ -17,6 +17,21 @@ protected:
     Min min = Min(&v);
     Mean mean = Mean(&v);
     Sum sum = Sum(&v);
+
+
+    class tmpObs : public Observer {
+    public:
+        tmpObs(Values *v) : subj(v) {
+            subj->subscribe(this);
+        }
+
+        void update() {
+            count++;
+        }
+
+        int count = 0;
+        Values *subj;
+    };
 };
 
 
@@ -30,11 +45,13 @@ TEST_F(ValuesSuite, TestRemoveValue) {
     ASSERT_EQ(0, std::begin(v.getValues())->getValue());
 }
 
-/*TEST_F(ValuesSuite, TestUpdate) {
-    v.addValue(20);
-    v.addValue(30);
-    ASSERT_EQ(3, op.getOpValues().size());
-}*/
+TEST_F(ValuesSuite, TestNotify) {
+    tmpObs tmpobs = tmpObs(&v);
+    v.addValue("b", 2, 10);
+    ASSERT_EQ(1, tmpobs.count);
+    v.addValue("c", 6, 10);
+    ASSERT_EQ(2, tmpobs.count);
+}
 
 TEST_F(ValuesSuite, TestUnsubscribe) {
     v.unsubscribe(&max);
