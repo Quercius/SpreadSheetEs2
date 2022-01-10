@@ -17,4 +17,9 @@ TEST(Operation, TestConstructor) {
     Mean mean = Mean(&v);
     Sum sum = Sum(&v);
 
+    ASSERT_EQ(std::begin(max.getOpValues())->getValue(), std::begin(v.getValues())->getValue());
+    ASSERT_EQ(std::begin(min.getOpValues())->getValue(), std::begin(v.getValues())->getValue());
+    ASSERT_EQ(std::begin(mean.getOpValues())->getValue(), std::begin(v.getValues())->getValue());
+    ASSERT_EQ(std::begin(sum.getOpValues())->getValue(), std::begin(v.getValues())->getValue());
 }
+
